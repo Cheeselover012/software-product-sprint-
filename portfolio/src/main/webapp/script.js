@@ -27,3 +27,37 @@ function addRandomFacts() {
   const factContainer = document.getElementById('fact-container');
   factContainer.innerText = fact;
 }
+
+/**
+ * Fetches a random quote from the server and adds it to the DOM.
+ */
+function getRandomQuote() {
+  console.log('Fetching a random quote.');
+
+  // The fetch() function returns a Promise because the request is asynchronous.
+  const responsePromise = fetch('webapp');
+
+  // When the request is complete, pass the response into handleResponse().
+  responsePromise.then(handleResponse);
+}
+
+/**
+ * Fetches stats from the servers and adds them to the DOM.
+ */
+function getServerStats() {
+  fetch('/server-stats').then(response => response.json()).then((stats) => {
+    // stats is an object, not a string, so we have to
+    // reference its fields to create HTML content
+
+    const statsListElement = document.getElementById('server-stats-container');
+    statsListElement.innerHTML = '';
+    statsListElement.appendChild(
+        createListElement('Start time: ' + stats.startTime));
+    statsListElement.appendChild(
+        createListElement('Current time: ' + stats.currentTime));
+    statsListElement.appendChild(
+        createListElement('Max memory: ' + stats.maxMemory));
+    statsListElement.appendChild(
+        createListElement('Used memory: ' + stats.usedMemory));
+  });
+}
