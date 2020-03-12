@@ -31,4 +31,25 @@ public class DataServlet extends HttpServlet {
     response.setContentType("text/html;");
     response.getWriter().println("<h1>Hello Serena!</h1>");
   }
+  /** Servlet that processes text. */
+
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // Get the input from the form.
+    String text = request.getParameter("text-input");
+    boolean Hidden = Boolean.valueOf(request.getParameter("Hidden"));
+
+    // Convert the text to upper case.
+    if (Hidden) {
+      text = "";
+    }
+
+    // Respond with the result.
+    response.setContentType("text/html;");
+    response.getWriter().println(text);
+    //response.sendRedirect("https://google.com");
+  }
 }
+
+
+
