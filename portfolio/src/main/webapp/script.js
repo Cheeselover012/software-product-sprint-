@@ -27,18 +27,28 @@ function addRandomFacts() {
   const factContainer = document.getElementById('fact-container');
   factContainer.innerText = fact;
 }
-
+console.log("in js");
 /**
- * Fetches a random quote from the server and adds it to the DOM.
+ * Fetches a random quote from the sedsdfswefsdfasdfasdfasdfasdfasdfdssdsfsfsfsr and adds it to the DOM.
  */
 function getWelcomeMessage() {
-  console.log('Fetching a welcome message.');
+      console.log('Fetching a welcome message.');
 
-  // The fetch() function returns a Promise because the request is asynchronous.
-  const responsePromise = fetch('/data');
+  fetch('/data')  // sends a request to /my-data-url
+.then(response => response.json()) // parses the response as JSON
+.then((messages) => { // now we can reference the fields in myObject!
+  console.log(messages.message1);
+  console.log(messages.message2);
+  console.log(messages.message3);
+});
+}
 
-  // When the request is complete, pass the response into handleResponse().
-  responsePromise.then(handleResponse);
+/** Adds a random quote to the DOM. */
+function addQuoteToDom(quote) {
+  console.log('Adding quote to dom: ' + quote);
+
+  const quoteContainer = document.getElementById('message-container');
+  quoteContainer.innerText = quote;
 }
 
 /**
@@ -67,4 +77,12 @@ async function getRandomQuoteUsingAsyncAwait() {
   const response = await fetch('/data');
   const quote = await response.text();
   document.getElementById('message-container').innerText = quote;
+}
+
+function commentDate(){
+  fetch('/server')  // sends a request to /my-data-url
+.then(response => response.json()) // parses the response as JSON
+.then((myObject) => { // now we can reference the fields in myObject!
+  console.log(myObject.x);
+});  
 }
