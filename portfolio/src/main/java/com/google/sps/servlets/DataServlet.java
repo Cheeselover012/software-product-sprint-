@@ -36,9 +36,9 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     ArrayList<String> messages = new ArrayList<>();
-    messages.add("Hello There!");
-    messages.add("Welcome to the site!");
-    messages.add("Congrats on navigating here!");
+    messages.add("\"Hello There!\",");
+    messages.add("\"Welcome to the site!\",");
+    messages.add("\"Congrats on navigating here!\"");
 
     String json = convertToJson(messages);
 

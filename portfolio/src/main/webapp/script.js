@@ -37,9 +37,19 @@ function getWelcomeMessage() {
   fetch('/data')  // sends a request to /my-data-url
 .then(response => response.json()) // parses the response as JSON
 .then((messages) => { // now we can reference the fields in myObject!
-  console.log(messages.message1);
-  console.log(messages.message2);
-  console.log(messages.message3);
+  const messageContainer = document.getElementById('message-container');
+  messageContainer.innerText = messages.message1 + "\n" + messages.message2 + "\n" + messages.message3;
+});
+}
+
+function getComments() {
+    console.log('Fetching comments.');
+
+  fetch('/comment')  // sends a request to /my-data-url
+.then(response => response.json()) // parses the response as JSON
+.then((comments) => { // now we can reference the fields in myObject!
+  const commentContainer = document.getElementById('comments-container');
+  commentContainer.innerText = comments;
 });
 }
 
@@ -77,12 +87,4 @@ async function getRandomQuoteUsingAsyncAwait() {
   const response = await fetch('/data');
   const quote = await response.text();
   document.getElementById('message-container').innerText = quote;
-}
-
-function commentDate(){
-  fetch('/server')  // sends a request to /my-data-url
-.then(response => response.json()) // parses the response as JSON
-.then((myObject) => { // now we can reference the fields in myObject!
-  console.log(myObject.x);
-});  
 }
