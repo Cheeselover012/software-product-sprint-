@@ -13,7 +13,7 @@
 // limitations under the License.
 
  console.log("Accessing js");
-
+ 
 /**
  * Fetches stats from the servers and adds them to the DOM.
  */
