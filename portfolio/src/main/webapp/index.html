@@ -72,6 +72,22 @@ and is wrapped around the whole page content, except for the footer in this exam
       </div>
     </div>
   </div>
+        <p>Want to see comments left for the site?</p>
+      <button onclick="getComments()">Fetch the Comments</button>
+      <div id="comments-container"></div>
+
+      <form action="/comment" method="POST">
+
+      <p>Enter some questions or comments you have for the site</p>
+      <textarea name="text-input"> </textarea>
+      <br/><br/>
+
+      <p>Choose some options:</p>
+      <input type="checkbox" name="Hidden" value="true"> Hidden
+      <br/><br/>
+
+      <input type="submit" />
+    </form>
 <!-- END BLOG ENTRIES -->
 </div>
 
@@ -96,6 +112,16 @@ and is wrapped around the whole page content, except for the footer in this exam
       <p>Click here to get a random fact about Serena Aeschilman:</p>
       <button onclick="addRandomFacts()">Hello</button>
       <div id="fact-container"></div>
+  </div>
+  <hr> 
+
+    <div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>Welcome</h4>
+    </div>
+      <p>Click here to get a message from Serena Aeschilman:</p>
+      <button onclick="getWelcomeMessage()">Fetch a Message</button>
+      <div id="message-container"></div>
   </div>
   <hr> 
 

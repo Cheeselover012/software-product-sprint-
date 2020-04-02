@@ -15,6 +15,9 @@
 /**
  * Fetches a random quote from the server and adds it to the DOM.
  */
+
+ console.log("Accessing js");
+
 function getRandomQuote() {
   console.log('Fetching a random quote.');
 
